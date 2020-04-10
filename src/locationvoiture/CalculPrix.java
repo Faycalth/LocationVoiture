@@ -69,13 +69,16 @@ public class CalculPrix {
 		}
 	}
 	
-	public void showNewBill(Location loc, Taxes t) {
+	public void showNewBill() {		
+		System.out.println("Le montant de la facture HORS-TAXES est de : " + this.price);
+	}
+        
+        public double calculPrix(Location loc) {
 		int nbJours = loc.dureeLocation();
 		
 		this.price = nbJours * this.getPriceForThisCar(loc.getVoiture());
-		this.addTxToPrice(t);
 		
-		System.out.println("Le montant de la facture est de : " + this.price);
+		return this.price;
 	
 	}
 

@@ -102,7 +102,7 @@ public class Locations_Par_Clients extends javax.swing.JFrame {
                             .addComponent(jLabel1)
                             .addComponent(jLabel3)
                             .addComponent(jLabel4))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 393, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(telephone, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(adresse, javax.swing.GroupLayout.Alignment.TRAILING)))
@@ -116,7 +116,7 @@ public class Locations_Par_Clients extends javax.swing.JFrame {
                 .addGap(60, 60, 60))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
-                .addComponent(jScrollPane1)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 615, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -153,6 +153,7 @@ public class Locations_Par_Clients extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -218,6 +219,7 @@ public class Locations_Par_Clients extends javax.swing.JFrame {
        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
        Object rowData[] = new Object[4];
        String nomClient = nom.getText();
+       CalculPrix cP = new CalculPrix();
        
        for(int i=0; i< bd.arrLstLocation.size();i++){
            if (nomClient.equals(bd.arrLstLocation.get(i).getClient().getNom())){

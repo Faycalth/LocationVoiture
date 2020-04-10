@@ -54,7 +54,7 @@ public class Liste_Clients_Reguliers extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Nom", "Prenom", "Adresse", "Points clients"
+                "Nom", "Adresse", "Telephone", "Points clients"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -95,7 +95,7 @@ public class Liste_Clients_Reguliers extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1)
                 .addGap(26, 26, 26)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 198, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -115,6 +115,7 @@ public class Liste_Clients_Reguliers extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

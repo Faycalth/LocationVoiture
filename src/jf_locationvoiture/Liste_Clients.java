@@ -54,7 +54,7 @@ public class Liste_Clients extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Nom", "Prenom", "Adresse", "Nombre de location"
+                "Nom", "Adresse", "Telephone", "Nombre de location"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -95,7 +95,7 @@ public class Liste_Clients extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1)
                 .addGap(26, 26, 26)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 198, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -115,6 +115,7 @@ public class Liste_Clients extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -127,7 +128,7 @@ public class Liste_Clients extends javax.swing.JFrame {
         String nom = Table_Clients.getModel().getValueAt(Table_Clients.getSelectedRow(), 0).toString();
         String adresse = Table_Clients.getModel().getValueAt(Table_Clients.getSelectedRow(), 1).toString();
         String telephone = Table_Clients.getModel().getValueAt(Table_Clients.getSelectedRow(), 2).toString();
-        String nbLocations = Table_Clients.getModel().getValueAt(Table_Clients.getSelectedRow(), 3).toString();
+        //String nbLocations = Table_Clients.getModel().getValueAt(Table_Clients.getSelectedRow(), 3).toString();
         
         Locations_Par_Clients a = new Locations_Par_Clients(nom, adresse, telephone);
         close();
@@ -191,7 +192,13 @@ public class Liste_Clients extends javax.swing.JFrame {
            rowData[0] = bd.arrLstClient.get(i).nom;
            rowData[1] = bd.arrLstClient.get(i).adresse;
            rowData[2] = bd.arrLstClient.get(i).tel;
-           rowData[3] = bd.arrLstClient.get(i).nombreDeLocation;
+           int compteurLocation = 0;
+           for(int j = 0; j < bd.arrLstLocation.size(); j++){
+               if (bd.arrLstClient.get(i).nom.equals(bd.arrLstLocation.get(j).getClient().getNom())){
+                   compteurLocation += 1;
+               }
+           }
+           rowData[3] = compteurLocation;
            model.addRow(rowData);
        }
        

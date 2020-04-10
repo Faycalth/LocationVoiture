@@ -8,15 +8,12 @@ package locationvoiture;
  */
 public class ClientRegulier extends Client {
 	
-	public String nom;
-	public String tel;
-	public String adresse;
-	public int nombreDeLocation;
+	
 	public int pointsBonClient;
 
 	public ClientRegulier() {
 		super();
-		this.pointsBonClient = 0;
+		this.pointsBonClient = 1;
 	}
 	
 	
@@ -27,38 +24,6 @@ public class ClientRegulier extends Client {
 	
 	public void addPoints(int value) {
 		this.pointsBonClient += value;
-	}
-
-	public String getNom() {
-		return nom;
-	}
-
-	public void setNom(String nom) {
-		this.nom = nom;
-	}
-
-	public String getTel() {
-		return tel;
-	}
-
-	public void setTel(String tel) {
-		this.tel = tel;
-	}
-
-	public String getAdresse() {
-		return adresse;
-	}
-
-	public void setAdresse(String adresse) {
-		this.adresse = adresse;
-	}
-
-	public int getNombreDeLocation() {
-		return nombreDeLocation;
-	}
-
-	public void setNombreDeLocation(int nombreDeLocation) {
-		this.nombreDeLocation = nombreDeLocation;
 	}
 
 	public int getPointsBonClient() {
