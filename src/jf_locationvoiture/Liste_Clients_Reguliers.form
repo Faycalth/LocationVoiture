@@ -101,7 +101,7 @@
                     <Column editable="false" title="Nom" type="java.lang.Object"/>
                     <Column editable="false" title="Prenom" type="java.lang.Object"/>
                     <Column editable="false" title="Adresse" type="java.lang.Object"/>
-                    <Column editable="false" title="Nombre de location" type="java.lang.Object"/>
+                    <Column editable="false" title="Points clients" type="java.lang.Object"/>
                   </Table>
                 </Property>
                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">

@@ -39,13 +39,13 @@ public class BD {
 		this.arrLstClientRegulier.add(cr2);
 		
 		Client c1 = new Client();
-		c1.nom = "M�lanie Charron";
+		c1.nom = "Melanie Charron";
 		c1.adresse = "12, rue des Fauvettes, Rimouski";
 		c1.tel = "581-555-8823";
 		this.arrLstClient.add(c1);
 		
 		Client c2 = new Client();
-		c2.nom = "Fran�ois Beauchemin";
+		c2.nom = "Francois Beauchemin";
 		c2.adresse = "50, rue des Oliviers, Rimouski";
 		c2.tel = "581-555-7525";
 		this.arrLstClient.add(c2);

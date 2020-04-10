@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package jf_locationvoiture;
+import javax.swing.table.DefaultTableModel;
 import locationvoiture.*;
 
 /**
@@ -11,21 +12,25 @@ import locationvoiture.*;
  * @author Fayçal
  */
 public class Locations_Par_Clients extends javax.swing.JFrame {
-
+    BD bd;
     /**
      * Creates new form Locations_Par_Clients
      */
     public Locations_Par_Clients() {
         initComponents();
+        this.bd = new BD();
+        addRowToJTable();
     }
 
-    Locations_Par_Clients(String n, String ad, String tel, String nbLoc) {
+    Locations_Par_Clients(String n, String ad, String tel) {
         initComponents();
+        this.bd = new BD();
         
         nom.setText(n);
         adresse.setText(ad);
         telephone.setText(tel);
-        nbLocations.setText(nbLoc);
+        
+        addRowToJTable();
     }
 
     /**
@@ -45,8 +50,8 @@ public class Locations_Par_Clients extends javax.swing.JFrame {
         nom = new javax.swing.JLabel();
         adresse = new javax.swing.JLabel();
         telephone = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        nbLocations = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -75,11 +80,15 @@ public class Locations_Par_Clients extends javax.swing.JFrame {
         telephone.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         telephone.setText("getTelephone");
 
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel5.setText("Nombre de location(s) :");
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
 
-        nbLocations.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        nbLocations.setText("getNbLoc");
+            },
+            new String [] {
+                "Marque", "Modele", "Date de début", "Date de fin"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -92,11 +101,9 @@ public class Locations_Par_Clients extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
                             .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 336, Short.MAX_VALUE)
+                            .addComponent(jLabel4))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 393, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(nbLocations, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(telephone, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(adresse, javax.swing.GroupLayout.Alignment.TRAILING)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -107,6 +114,10 @@ public class Locations_Par_Clients extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(nom)))
                 .addGap(60, 60, 60))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(jScrollPane1)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -125,11 +136,9 @@ public class Locations_Par_Clients extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(telephone))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(nbLocations))
-                .addContainerGap(188, Short.MAX_VALUE))
+                .addGap(31, 31, 31)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
+                .addGap(16, 16, 16))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -140,7 +149,7 @@ public class Locations_Par_Clients extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -193,9 +202,9 @@ public class Locations_Par_Clients extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel nbLocations;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JLabel nom;
     private javax.swing.JLabel telephone;
     // End of variables declaration//GEN-END:variables
@@ -203,5 +212,21 @@ public class Locations_Par_Clients extends javax.swing.JFrame {
     private void close() {
         this.setVisible(false);
         dispose();
+    }
+
+    private void addRowToJTable() {
+       DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+       Object rowData[] = new Object[4];
+       String nomClient = nom.getText();
+       
+       for(int i=0; i< bd.arrLstLocation.size();i++){
+           if (nomClient.equals(bd.arrLstLocation.get(i).getClient().getNom())){
+            rowData[0] = bd.arrLstLocation.get(i).getVoiture().getMarque();
+            rowData[1] = bd.arrLstLocation.get(i).getVoiture().getModele();
+            rowData[2] = bd.arrLstLocation.get(i).getpL().getDateDebut();
+            rowData[3] = bd.arrLstLocation.get(i).getpL().getDateFin();
+            model.addRow(rowData);
+           }
+       }
     }
 }

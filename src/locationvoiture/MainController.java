@@ -16,6 +16,6 @@ public class MainController {
 	}
 	
 	public void start() {
-		System.out.print(bd.arrLstClientRegulier.toString());
+                System.out.println(bd.arrLstLocation.toString());
 	}
 }

@@ -129,7 +129,7 @@ public class Liste_Clients extends javax.swing.JFrame {
         String telephone = Table_Clients.getModel().getValueAt(Table_Clients.getSelectedRow(), 2).toString();
         String nbLocations = Table_Clients.getModel().getValueAt(Table_Clients.getSelectedRow(), 3).toString();
         
-        Locations_Par_Clients a = new Locations_Par_Clients(nom, adresse, telephone, nbLocations);
+        Locations_Par_Clients a = new Locations_Par_Clients(nom, adresse, telephone);
         close();
         a.setVisible(true);
         
