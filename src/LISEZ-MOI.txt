@@ -1,0 +1,5 @@
+L'application est située dans le package "jf_locationvoiture" 
+Il faut lancer le fichier "Application.java" pour consulter les différents rapports
+
+Il y a aussi un exemple de la méthode "calculPrix()" et "dureeLocation()" qui affiche dans la console
+Il suffit de lancer le fichier "Main.java" du package locationvoiture

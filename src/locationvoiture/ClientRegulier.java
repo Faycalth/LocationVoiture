@@ -19,7 +19,7 @@ public class ClientRegulier extends Client {
 	
 	public ClientRegulier(Client c) {
 		super(c.getNom(),c.getTel(),c.getAdresse());
-		this.nombreDeLocation = 5;
+                this.pointsBonClient = 1;
 	}
 	
 	public void addPoints(int value) {

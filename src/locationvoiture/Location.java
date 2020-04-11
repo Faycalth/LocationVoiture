@@ -42,6 +42,14 @@ public class Location {
 		this.voiture = null;
 		this.setpL(null);
 	}
+        
+        public Location(Client c, Voiture v, PeriodeLocation p){
+            this.client = c;
+            this.voiture = v;
+            this.pL = p;
+            this.client.setNombreDeLocation(client.getNombreDeLocation()+1);
+            verifNbLocation();
+        }
 	
 	public Client getClient() {
 		return client;
@@ -49,6 +57,7 @@ public class Location {
 
 	public void setClient(Client client) {
 		this.client = client;
+                this.client.setNombreDeLocation(client.getNombreDeLocation()+1);
 	}
 
 	public ClientRegulier getClientRegulier() {
@@ -103,6 +112,13 @@ public class Location {
 	     }
 		return res;
 	  }
+        
+        public final void verifNbLocation(){
+            if (this.client.getNombreDeLocation() == 5){   
+                ClientRegulier cR = new ClientRegulier(this.client);
+                this.setClientRegulier(cR);
+                }
+        }
 
 	@Override
 	public String toString() {

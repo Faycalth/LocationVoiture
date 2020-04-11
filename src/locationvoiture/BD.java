@@ -23,6 +23,18 @@ public class BD {
 		this.arrLstClient = new ArrayList<Client>();
 		this.arrLstVoiture = new ArrayList<Voiture>();
 		this.arrLstLocation = new ArrayList<Location>();
+                
+                PeriodeLocation pl1 = new PeriodeLocation();
+		pl1.dateDebut = "2020-04-01";
+		pl1.dateFin = "2020-04-03";
+                
+                PeriodeLocation pl2 = new PeriodeLocation();
+		pl2.dateDebut = "2020-04-01";
+		pl2.dateFin = "2020-04-03";
+                
+                PeriodeLocation pl3 = new PeriodeLocation();
+		pl3.dateDebut = "2020-03-01";
+		pl3.dateFin = "2020-04-25";
 		
 		ClientRegulier cr1 = new ClientRegulier();
 		cr1.nom = "Maxime Talbot";
@@ -111,65 +123,23 @@ public class BD {
 		v4.setModele("Civic");
 		v4.setAnnee("2019");
 		this.arrLstVoiture.add(v4);
-		
-		PeriodeLocation pl1 = new PeriodeLocation();
-		pl1.dateDebut = "2020-04-01";
-		pl1.dateFin = "2020-04-03";
-                		
-		Location l1 = new Location();
-		l1.setClient(c1);
-		l1.setVoiture(v1);
-		l1.setpL(pl1);
+	
+		Location l1 = new Location(c1, v1, pl1);
 		this.arrLstLocation.add(l1);
 		
-		PeriodeLocation pl2 = new PeriodeLocation();
-		pl2.dateDebut = "2020-04-01";
-		pl2.dateFin = "2020-04-03";
-		
-		Location l2 = new Location();
-		l2.setClient(cr1);
-		l2.setVoiture(v2);
-		l2.setpL(pl2);
+		Location l2 = new Location(cr1,v2,pl2);
 		this.arrLstLocation.add(l2);
                 
-                PeriodeLocation pl3 = new PeriodeLocation();
-		pl3.dateDebut = "2020-03-01";
-		pl3.dateFin = "2020-04-25";
-                
-                Location l3 = new Location();
-		l3.setClient(c5);
-		l3.setVoiture(v4);
-		l3.setpL(pl1);
+                Location l3 = new Location(c5,v4,pl1);
 		this.arrLstLocation.add(l3);
                 
-                Location l4 = new Location();
-		l4.setClient(cr4);
-		l4.setVoiture(v4);
-		l4.setpL(pl1);
+                Location l4 = new Location(c1,v4,pl1);
 		this.arrLstLocation.add(l4);
                 
-                Location l5 = new Location();
-		l5.setClient(cr3);
-		l5.setVoiture(v4);
-		l5.setpL(pl1);
+                Location l5 = new Location(c1,v4,pl1);
 		this.arrLstLocation.add(l5);
-                
-                Location l6 = new Location();
-		l6.setClient(cr3);
-		l6.setVoiture(v3);
-		l6.setpL(pl2);
-		this.arrLstLocation.add(l6);
-                
-                Location l7 = new Location();
-		l7.setClient(cr3);
-		l7.setVoiture(v4);
-		l7.setpL(pl1);
-		this.arrLstLocation.add(l7);
-                
-                Location l8 = new Location();
-		l8.setClient(cr2);
-		l8.setVoiture(v2);
-		l8.setpL(pl3);
+                        
+                Location l8 = new Location(c2,v2,pl3);
 		this.arrLstLocation.add(l8);
                 
                 

@@ -69,8 +69,10 @@ public class CalculPrix {
 		}
 	}
 	
-	public void showNewBill() {		
-		System.out.println("Le montant de la facture HORS-TAXES est de : " + this.price);
+	public void showNewBill(Location loc) {		
+            double prixHT = calculPrix(loc);
+            int duree = loc.dureeLocation();
+            System.out.println("Le montant de la facture HORS-TAXES est de : " + prixHT+ " pour une duree de location de :" +duree+ " jours");
 	}
         
         public double calculPrix(Location loc) {
